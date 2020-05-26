@@ -17,8 +17,9 @@ certificatesResolvers:
   letsencrypt:
     # https://docs.traefik.io/master/https/acme/#lets-encrypt
     acme:
-      email: "danielfelipe.arevalo2@gmail.com"
-      storage: /etc/traefik/acme/acme.json
+      # email: "danielfelipe.arevalo2@gmail.com"
+      # storage: /etc/traefik/acme/acme.json
+      caServer: https://acme-v02.api.letsencrypt.org/directory
       # https://docs.traefik.io/master/https/acme/#httpchallenge
       httpChallenge:
         entryPoint: web
