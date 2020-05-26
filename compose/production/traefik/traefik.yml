@@ -49,7 +49,7 @@ http:
         domains:
           - main: "micameo.company"
             sans:
-              - "*.micameo.company"
+              - "app.micameo.company"
 
     flower-secure-router:
       rule: "Host(`micameo.company`) "
@@ -62,7 +62,7 @@ http:
         domains:
           - main: "micameo.company"
             sans:
-              - "*.micameo.company"
+              - "app.micameo.company"
 
   middlewares:
     redirect:
