@@ -17,7 +17,9 @@ certificatesResolvers:
   letsencrypt:
     # https://docs.traefik.io/master/https/acme/#lets-encrypt
     acme:
-      caServer: https://acme-v02.api.letsencrypt.org/directory
+      dnsChallenge:
+        provider: digitalocean
+        delayBeforeCheck: 0
       # email: "danielfelipe.arevalo2@gmail.com"
       # storage: /etc/traefik/acme/acme.json
       # https://docs.traefik.io/master/https/acme/#httpchallenge
