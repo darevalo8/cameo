@@ -29,7 +29,7 @@ certificatesResolvers:
 http:
   routers:
     web-router:
-      rule: "Host(`micameo.company`) || Host(`www.micameo.company`)"
+      rule: "Host(`app.micameo.company`) || Host(`www.app.micameo.company`)"
 
       entryPoints:
         - web
@@ -39,7 +39,7 @@ http:
       service: django
 
     web-secure-router:
-      rule: "Host(`micameo.company`) || Host(`www.micameo.company`)"
+      rule: "Host(`app.micameo.company`) || Host(`www.app.micameo.company`)"
 
       entryPoints:
         - web-secure
@@ -49,13 +49,13 @@ http:
       tls:
         # https://docs.traefik.io/master/routing/routers/#certresolver
         certResolver: letsencrypt
-        domains:
-          - main: "micameo.company"
-            sans:
-              - "app.micameo.company"
+        # domains:
+        #   - main: "micameo.company"
+        #     sans:
+        #       - "app.micameo.company"
 
     flower-secure-router:
-      rule: "Host(`micameo.company`) "
+      rule: "Host(`app.micameo.company`) "
       entryPoints:
         - flower
       service: flower
