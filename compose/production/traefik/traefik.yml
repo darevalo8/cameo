@@ -13,15 +13,15 @@ entryPoints:
   flower:
     address: ":5555"
 
-certificatesResolvers:
-  letsencrypt:
-    # https://docs.traefik.io/master/https/acme/#lets-encrypt
-    acme:
-      email: "danielfelipe.arevalo2@gmail.com"
-      storage: /etc/traefik/acme/acme.json
-      # https://docs.traefik.io/master/https/acme/#httpchallenge
-      httpChallenge:
-        entryPoint: web
+# certificatesResolvers:
+#   letsencrypt:
+#     # https://docs.traefik.io/master/https/acme/#lets-encrypt
+#     acme:
+#       email: "danielfelipe.arevalo2@gmail.com"
+#       storage: /etc/traefik/acme/acme.json
+#       # https://docs.traefik.io/master/https/acme/#httpchallenge
+#       httpChallenge:
+#         entryPoint: web
 
 http:
   routers:
@@ -54,7 +54,10 @@ http:
       service: flower
       tls:
         # https://docs.traefik.io/master/routing/routers/#certresolver
-        certResolver: letsencrypt
+        # certResolver: letsencrypt
+        options:
+          default:
+            preferServerCipherSuites: true
 
   middlewares:
     redirect:
