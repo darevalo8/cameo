@@ -17,9 +17,8 @@ certificatesResolvers:
   letsencrypt:
     # https://docs.traefik.io/master/https/acme/#lets-encrypt
     acme:
-      # email: "danielfelipe.arevalo2@gmail.com"
-      # storage: /etc/traefik/acme/acme.json
-      caServer: https://acme-v02.api.letsencrypt.org/directory
+      email: "danielfelipe.arevalo2@gmail.com"
+      storage: /etc/traefik/acme/acme.json
       # https://docs.traefik.io/master/https/acme/#httpchallenge
       httpChallenge:
         entryPoint: web
@@ -49,10 +48,11 @@ http:
         certResolver: letsencrypt
         domains:
           - main: "micameo.company"
-            sans: "`*.micameo.company`"
+            sans:
+              - "*.micameo.company"
 
     flower-secure-router:
-      rule: "Host(`micameo.company`)"
+      rule: "Host(`micameo.company`) "
       entryPoints:
         - flower
       service: flower
@@ -61,7 +61,8 @@ http:
         certResolver: letsencrypt
         domains:
           - main: "micameo.company"
-            sans: "`*.micameo.company`"
+            sans:
+              - "*.micameo.company"
 
   middlewares:
     redirect:
