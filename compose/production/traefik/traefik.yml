@@ -62,10 +62,10 @@ http:
       tls:
         # https://docs.traefik.io/master/routing/routers/#certresolver
         certResolver: letsencrypt
-        domains:
-          - main: "micameo.company"
-            sans:
-              - "app.micameo.company"
+        # domains:
+        #   - main: "micameo.company"
+        #     sans:
+        #       - "app.micameo.company"
 
   middlewares:
     redirect:
